@@ -1,383 +1,736 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en"
+    class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"
+    style="">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.css">
-
-  <!-- My CSS-->
-  <link rel="stylesheet" href="frontend/styles/main.css">
-
-  <!-- Google Fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-
-  <title>Hello, world!</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Farah Aflah</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Portfolio website for Farah Aflah.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg">
+    <!-- CSS
+============================================ -->
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/slick.css">
+    <link rel="stylesheet" href="./assets/slick-theme.css">
+    <link rel="stylesheet" href="./assets/aos.css">
+    <link rel="stylesheet" href="./assets/feature.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Style css -->
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">BIKESTORE</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- Tutup Header -->
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h1>It's your world, <br>Ride it!</h1>
-          <p>There is no other day without cycling</p>
-          <div class="btn-cta">
-            <img src="frontend/img/Copy of bicycle-logo 1.png">
-            <a href="#" class="btn btn-warning">Order Your Bike</a>
-          </div>
-        </div>
-        <div class="col-6">
-          <img src="frontend/img/banner right.png" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Tutup Hero Section-->
-
-  <!-- Trend Categories-->
-  <section class="categories">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex section-tittle">
-            <h4>Trend</h4>
-            <h4>&nbsp;Categories</h4>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-4 component-categories">
-          <div class="tag">
-            <span>Mountain</span>
-          </div>
-          <a href="#">
-            <div class="categories-thumbnail">
-              <div class="categories-img" style="background-image: url(frontend/img/categories-1\ 2.png)"></div>
-            </div>
-          </a>
-        </div>
-        <div class="col-3 component-categories">
-          <div class="tag">
-            <span>Road</span>
-          </div>
-          <a href="#">
-            <div class="categories-thumbnail">
-              <div class="categories-img" style="background-image: url(frontend/img/categories-2\ 2.png)"></div>
-            </div>
-          </a>
-        </div>
-        <div class="col-5 ">
-          <div class="row">
-            <div class="col-12 component-categories">
-              <div class="tag">
-                <span>Urban</span>
-              </div>
-              <a href="#">
-                <div class="categories-thumbnail-small">
-                  <div class="categories-img" style="background-image: url(frontend/img/categories-3\ 2.png)"></div>
+<body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70"
+    data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+    <!-- Start Header -->
+    <header class="rn-header haeder-default black-logo-version header--fixed header--sticky">
+        <div class="header-wrapper rn-popup-mobile-menu m--0 row align-items-center">
+            <!-- Start Header Left -->
+            <div class="col-lg-2 col-6" style="padding-left: 6px;">
+                <div class="header-left">
+                    <a href="#home">
+                        <h4>FARAH</h4>
+                    </a>
                 </div>
-              </a>
             </div>
-            <div class="col-12">
-              <div class="tag">
-                <span>Junior</span>
-              </div>
-              <a href="#">
-                <div class="categories-thumbnail-small">
-                  <div class="categories-img" style="background-image: url(frontend/img/categories-4\ 1.png)"></div>
+            <!-- End Header Left -->
+            <!-- Start Header Center -->
+            <div class="col-lg-10 col-6">
+                <div class="header-center">
+                    <nav id="sideNav" class="mainmenu-nav navbar-example2 d-none d-xl-block onepagenav">
+                        <!-- Start Mainmanu Nav -->
+                        <ul class="primary-menu nav nav-pills">
+                            <li class="nav-item current"><a class="nav-link" href="#home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contacts">Contact</a></li>
+                        </ul>
+                        <!-- End Mainmanu Nav -->
+                    </nav>
+                    <!-- Start Header Right  -->
+                    <div class="header-right">
+                        <div class="hamberger-menu d-block d-xl-none">
+                            <i id="menuBtn" class="fa-solid fa-bars humberger-menu" style="cursor: pointer;"></i>
+                        </div>
+                        <div class="close-menu d-block">
+                            <span class="closeTrigger">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-x">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- End Header Right  -->
+
                 </div>
-              </a>
             </div>
-          </div>
+            <!-- End Header Center -->
         </div>
-      </div>
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Popup Mobile Menu  -->
+    <div class="popup-mobile-menu">
+        <div class="inner">
+            <div class="menu-top">
+                <div class="menu-header">
+                    <a class="logo" href="#home">
+                        <img src="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg"
+                            style="width: 50px; height: auto;" alt="Personal Portfolio">
+                    </a>
+                    <div class="close-button">
+                        <button class="close-menu-activation close"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <ul class="primary-menu nav nav-pills onepagenav">
+                    <li class="nav-item current"><a class="nav-link smoth-animation active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link smoth-animation" href="#contacts">Contact</a></li>
+                </ul>
+                <!-- social sharea area -->
+                <div class="social-share-style-1 mt--40">
+                    <span class="title">find me</span>
+                    <ul class="social-share d-flex liststyle">
+                        <li class="twitter"><a href="https://twitter.com/farahaf17" target="_blank"><i
+                                    class="fa-brands fa-x-twitter"></i></a>
+                        </li>
+                        <li class="instagram"><a href="https://instagram.com/farahaf17" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                        </li>
+                        <li class="linkedin"><a href="https://www.linkedin.com/in/farah-tsabitah-aflah-43533030a/"
+                                target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end -->
+            </div>
+        </div>
     </div>
-  </section>
-  <!-- Tutup Trend Categories-->
+    <!-- End Popup Mobile Menu  -->
 
-  <!-- Popular Product-->
-  <section class="popular-products">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex section-tittle">
-            <h4>Popular</h4>
-            <h4>&nbsp;Products</h4>
-          </div>
+
+
+
+    <main class="main-page-wrapper">
+
+        <!-- Start Slider Area -->
+        <div id="home" class="rn-slider-area">
+            <div class="slide slider-style-1">
+                <div class="container">
+                    <div class="row row--30 align-items-center">
+                        <div class="order-2 order-lg-1 col-lg-7 mt_md--50 mt_sm--50 mt_lg--30">
+                            <div class="content">
+                                <div class="inner">
+                                    <span class="subtitle">WELCOME TO MY WORLD</span>
+                                    <h1 class="title">Hi, I'm <span>Farah Aflah</span><br>
+                                        <span class="header-caption" id="page-top">
+                                            <!-- type headline start-->
+                                            <span class="cd-headline clip is-full-width">
+                                                <span>a </span>
+                                                <!-- ROTATING TEXT -->
+                                                <span class="cd-words-wrapper" style="width: 494.594px;">
+                                                    <b class="is-hidden">CompSci Bachelor.</b>
+                                                    <b class="is-visible">Software Engineer.</b>
+                                                    <b class="is-hidden">AI Developer.</b>
+                                                </span>
+                                            </span>
+                                            <!-- type headline end -->
+                                        </span>
+                                    </h1>
+
+                                    <div>
+                                        <p class="description">Hello! I'm Farah, a Bachelor in Informatics Engineering
+                                            at Universitas Riau, with a strong interest in backend development and
+                                            artificial intelligence (AI). I'm always excited to learn about the latest
+                                            technologies and how they can be applied to create effective and innovative
+                                            solutions. With my continually growing experience, I am committed to
+                                            developing my skills in this field and ready to contribute to challenging
+                                            and interesting projects.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                        <div class="social-share-inner-left">
+                                            <span class="title">find me</span>
+                                            <ul class="social-share d-flex liststyle">
+                                                <li class="twitter"><a href="https://twitter.com/farahaf17"
+                                                        target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                                </li>
+                                                <li class="instagram"><a href="https://instagram.com/farahaf17"
+                                                        target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                                </li>
+                                                <li class="linkedin"><a href="https://www.linkedin.com/in/farahaflah/"
+                                                        target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-1 order-lg-2 col-lg-5">
+                            <div class="thumbnail">
+                                <img src="./assets/IMG_52812.PNG" alt="Personal Portfolio Images">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/bicycle-3 1.png" class="img-fluid">
+        <!-- End Slider Area -->
+
+        <!-- Start Resume Area -->
+        <div class="rn-resume-area rn-section-gap section-separator" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2 class="title">About Me</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt--45">
+                    <div class="col-lg-12">
+                        <ul class="rn-nav-list nav nav-tabs" id="myTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="education-tab" data-bs-toggle="tab" href="#education"
+                                    role="tab" aria-controls="education" aria-selected="true">Personal Information</a>
+                            </li>
+                        </ul>
+
+                        <!-- Start Tab Content Wrapper  -->
+                        <div class="rn-nav-content tab-content" id="myTabContents">
+                            <!-- Start Single Tab  -->
+                            <div class="tab-pane show active fade single-tab-area" id="education" role="tabpanel"
+                                aria-labelledby="education-tab">
+                                <div class="personal-experience-inner mt--40">
+                                    <div class="row">
+                                        <!-- Start Skill List Area  -->
+                                        <div class="col-lg-6 col-md-12 col-12">
+                                            <div class="content">
+                                                <div class="experience-list">
+                                                    <!-- Start Single List  -->
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Full Name</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description">Farah Tsabitah Aflah</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Date of Birth</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description">17 September 2003</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Degree</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description">Bachelor in Informatics Engineering
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Single List  -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Skill List Area  -->
+
+                                        <!-- Start Skill List Area 2nd  -->
+                                        <div class="col-lg-6 col-md-12 col-12 mt_md--60 mt_sm--60">
+                                            <div class="content">
+                                                <div class="experience-list">
+                                                    <!-- Start Single List  -->
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Phone</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description">+62 813-6557-8803</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Email</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description">farahaflah17@gmail.com</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="resume-single-list">
+                                                        <div class="inner">
+                                                            <div class="heading">
+                                                                <div class="title">
+                                                                    <h4>Website</h4>
+                                                                </div>
+                                                            </div>
+                                                            <p class="description"><a href="https://glowyguide.com/"
+                                                                    target="_blank">www.glowyguide.com</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single List  -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Skill List Area  -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Tab  -->
+                    </div>
+                </div>
             </div>
-            <div class="products-text mb-2">
-              Speach Stealth
-            </div>
-            <div class="products-price">
-              $335,33
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/bicycle-4 1.png" class="img-fluid">
+        <!-- End Resume Area -->
+        <div class="rn-resume-area rn-section-gap section-separator" id="skills">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <h2 class="title">Skills</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt--45">
+                    <div class="col-lg-12">
+                        <div class="personal-experience-inner mt--40">
+                            <div class="row row--40">
+                                <!-- Start Single Progressbar  -->
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="progress-wrapper">
+                                        <div class="content">
+                                            <span class="subtitle">Features</span>
+                                            <h4 class="maintitle">Design Skill</h4>
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">PHOTOSHOP</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar"
+                                                        style="width: 100%; visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">100%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">FIGMA</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar"
+                                                        style="width: 95%; visibility: visible; animation-duration: 0.6s; animation-delay: 0.4s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">95%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">ADOBE XD</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar"
+                                                        style="width: 60%; visibility: visible; animation-duration: 0.7s; animation-delay: 0.5s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">60%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">ADOBE ILLUSTRATOR</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar"
+                                                        style="width: 70%; visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">70%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Progressbar  -->
+
+                                <!-- Start Single Progressbar  -->
+                                <div class="col-lg-6 col-md-6 col-12 mt_sm--60">
+                                    <div class="progress-wrapper">
+                                        <div class="content">
+                                            <span class="subtitle">Features</span>
+                                            <h4 class="maintitle">Development Skill</h4>
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">HTML</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar"
+                                                        style="width: 85%; visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">85%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">CSS</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar"
+                                                        style="width: 80%; visibility: visible; animation-duration: 0.6s; animation-delay: 0.4s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">80%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">JAVASCRIPT</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar"
+                                                        style="width: 90%; visibility: visible; animation-duration: 0.7s; animation-delay: 0.5s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">90%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                            <!-- Start Single Progress Charts -->
+                                            <div class="progress-charts">
+                                                <h6 class="heading heading-h6">SOFTWARE</h6>
+                                                <div class="progress">
+                                                    <div class="progress-bar wow fadeInLeft animated"
+                                                        data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar"
+                                                        style="width: 75%; visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: fadeInLeft;"
+                                                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
+                                                            class="percent-label">75%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- End Single Progress Charts -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="products-text mb-2">
-              Spectral Moutain
-            </div>
-            <div class="products-price">
-              $350
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/helmet-1 1.png" class="img-fluid">
+
+        <!-- Start Portfolio Area -->
+        <div class="rn-portfolio-area rn-section-gap section-separator" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <span class="subtitle">VISIT MY PORTFOLIO</span>
+                            <h2 class="title">My Portfolio</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row--25 mt--10 mt_md--10 mt_sm--10">
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/" target="_blank">
+                                        <img src="https://i.ibb.co.com/601DNLc/home.png"
+                                            style="max-height: 250px; width: 100%; height: auto; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">WEB</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a href="https://glowyguide.com/">Glowy Guide <i
+                                                class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/absen.png"
+                                        target="_blank">
+                                        <img src="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/absen.png"
+                                            style="max-height: 250px; width: 100%; height: auto; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">APPLICATION PROTOTYPE</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a
+                                            href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/absen.png">MyClass
+                                            <i class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/unri_kel8/berandaunri.html" target="_blank">
+                                        <img src="./assets/unri.png"
+                                            style="max-height: 250px; width: 100%; height: auto; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">web</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a
+                                            href="https://glowyguide.com/unri_kel8/berandaunri.html">Redesign Web UNRI
+                                            <i class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/image.png"
+                                        target="_blank">
+                                        <img src="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/image.png"
+                                            style="max-height: 250px; width: 100%; height: auto; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">web</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a
+                                            href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/image.png">Turing
+                                            Machine Implementation <i class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/convert.png"
+                                        target="_blank">
+                                        <img src="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/convert.png"
+                                            style="max-height: 250px; width: 100%; height: 250px; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">app</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a
+                                            href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/convert.png">ConvertEase
+                                            <i class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+
+                    <!-- Start Single Portfolio -->
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true"
+                        class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30 aos-init aos-animate">
+                        <div class="rn-portfolio">
+                            <div class="inner">
+                                <div class="thumbnail">
+                                    <a href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/sepatu.png"
+                                        target="_blank">
+                                        <img src="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/sepatu.png"
+                                            style="max-height: 250px; width: 100%; height: 250px; object-fit: cover; object-position: top;">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="category-info">
+                                        <div class="category-list">
+                                            <a href="javascript:void(0)">JAVA ANIMATION</a>
+                                        </div>
+                                    </div>
+                                    <h4 class="title"><a
+                                            href="https://glowyguide.com/tugas/porto_kel8/assets/img/portfolio/sepatu.png">Java
+                                            Shoes Animation <i class="fa-solid fa-arrow-right"></i></a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Portfolio -->
+                </div>
+
             </div>
-            <div class="products-text mb-2">
-              Lixada Ultra
-            </div>
-            <div class="products-price">
-              $50
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/bicycle-5 1.jpg" class="img-fluid">
+        <!-- End portfolio Area -->
+
+        <!-- Start Contact section -->
+        <div class="rn-contact-area rn-section-gap section-separator" id="contacts">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <span class="subtitle">CONTACT</span>
+                            <h2 class="title">Contact Me</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt--50 mt_md--40 mt_sm--40 mt-contact-sm">
+                    <div class="col-md">
+                        <div class="contact-about-area">
+                            <div class="title-area">
+                                <h4 class="title">Farah Aflah</h4>
+                            </div>
+                            <div class="description">
+                                <p>I am available for freelance work. Connect with me via and call in to my account.
+                                </p>
+                                <span class="phone">Phone: <a href="tel:+6281365578803">+62 813-6557-8803</a></span>
+                                <span class="mail">Email: <a
+                                        href="mailto:farahaflah17@gmail.com">farahaflah17@gmail.com</a></span>
+                            </div>
+                            <div class="social-area">
+                                <div class="name">FIND ME</div>
+                                <div class="social-icone">
+                                    <a href="https://twitter.com/farahaf17" target="_blank"><i
+                                            class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="https://instagram.com/farahaf17" target="_blank"><i
+                                            class="fa-brands fa-instagram"></i></a>
+                                    <a href="https://www.linkedin.com/in/farahaflah/"
+                                        target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="products-text mb-2">
-              Noris Nexx 3.0
-            </div>
-            <div class="products-price">
-              $250
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-1 1.png" class="img-fluid">
+        <!-- End Contact section -->
+        <!-- Back to  top Start -->
+        <div class="backto-top" style="opacity: 0;">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-arrow-up">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
             </div>
-            <div class="products-text mb-2">
-              Xzone Eron
-            </div>
-            <div class="products-price">
-              $30
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-2 1.jpg" class="img-fluid">
+        <!-- Back to top end -->
+
+    </main>
+    <!-- Start Footer Area -->
+    <div class="rn-footer-area rn-section-gap section-separator">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-area text-center">
+                        <p class="description mt--30">&copy; 2024. All rights reserved by <a target="_blank"
+                                href="javascript:void(0)">Farah Aflah</a></p>
+                    </div>
+                </div>
             </div>
-            <div class="products-text mb-2">
-              Schawalbe 700x35 C
-            </div>
-            <div class="products-price">
-              $1,100
-            </div>
-          </a>
         </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-3 1.jpg" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Xzone Jersey
-            </div>
-            <div class="products-price">
-              $180
-            </div>
-          </a>
-        </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-4 1.jpg" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Polygon Pro Long
-            </div>
-            <div class="products-price">
-              $100
-            </div>
-          </a>
-        </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-1 1.png" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Xzone Eron
-            </div>
-            <div class="products-price">
-              $30
-            </div>
-          </a>
-        </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-1 1.png" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Xzone Eron
-            </div>
-            <div class="products-price">
-              $30
-            </div>
-          </a>
-        </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-1 1.png" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Xzone Eron
-            </div>
-            <div class="products-price">
-              $30
-            </div>
-          </a>
-        </div>
-        <div class="col-3">
-          <a href="#" class="component-products d-block">
-            <div class="products-img mb-4">
-              <img src="frontend/img/product-1 1.png" class="img-fluid">
-            </div>
-            <div class="products-text mb-2">
-              Xzone Eron
-            </div>
-            <div class="products-price">
-              $30
-            </div>
-          </a>
-        </div>
-      </div>
     </div>
-  </section>
-  <!-- Tutup Popular Product-->
-
-  <!-- Testimonial -->
-  <section class="testimonial">
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <div class="testimonial-hero">
-            <img src="frontend/img/picture.png" class="testimonial-img">
-            <img src="frontend/img/frame.png" class="testimonial-frame">
-          </div>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-7 my-auto">
-          <div class="stars">
-            <img src="frontend/img/stars.png" alt="">
-          </div>
-          <h2 class="testimonial-text">BIKESTORE "GOES TO <br>CAMPUS"
-            X UIR ...</h2>
-          <p class="testimonial-name">Johan, Programmer</p>
-          <a href="#" class="btn btn-testimonial">Read Story</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Tutup Testimonial -->
-
-  <!-- Footer -->
-  <section>
-    <div class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <h2>Bikestore</h2>
-            <a href="#">
-              <img src="frontend/img/ig 1.png">
-            </a>
-            <a href="#">
-              <img src="frontend/img/fb 1.png">
-            </a>
-            <a href="#">
-              <img src="frontend/img/youtubr 1.png">
-            </a>
-          </div>
-          <div class="col-6 text-right">
-            <h5>Address</h5>
-            <p>Jl. Kaharuddin Nasution No.01, 
-              Kecamatan Marpoyan Damai, Pekanbaru, Riau 28282
-              0812-1234-578
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-small py-2">
-      <div class="row">
-        <div class="col-12">
-          <p>2022 Copyright <a href="#">Bikestore</a> All Rights Reserved.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Tutup Footer -->
-
-  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="frontend/libraries/bootstrap/js/bootstrap.js"></script>
-
+    <!-- End Footer Area -->
+    <!-- JS ============================================ -->
+    <script src="./assets/jquery.js"></script>
+    <script src="./assets/modernizer.min.js"></script>
+    <script src="./assets/feather.min.js"></script>
+    <script src="./assets/slick.min.js"></script>
+    <script src="./assets/bootstrap.js"></script>
+    <script src="./assets/text-type.js"></script>
+    <script src="./assets/wow.js"></script>
+    <script src="./assets/aos.js"></script>
+    <script src="./assets/particles.js"></script>
+    <script src="./assets/jquery-one-page-nav.js"></script>
+    <!-- main JS -->
+    <script src="./assets/main.js"></script>
 </body>
 
 </html>
