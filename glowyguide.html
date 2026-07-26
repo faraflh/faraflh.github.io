@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Glowy Guide Project - Farah Aflah</title>
+    <meta name="description"
+        content="Halaman studi proyek Glowy Guide, website skincare berbasis WordPress dengan optimasi SEO, PageSpeed, AdSense, dan affiliate marketing.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        :root {
+            --gg-ink: #06211f;
+            --gg-muted: #68747d;
+            --gg-line: #d9e4e8;
+            --gg-soft: #eef4f6;
+            --gg-card: #ffffff;
+            --gg-blue: #b8c8d2;
+            --gg-lilac: #d7d0e5;
+            --gg-green: #c9ddd1;
+        }
+
+        body.glowy-page {
+            background: #e9eef1;
+            color: var(--gg-ink);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .glowy-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid var(--gg-line);
+            backdrop-filter: blur(16px);
+        }
+
+        .glowy-nav-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-height: 74px;
+        }
+
+        .glowy-brand {
+            color: var(--gg-ink);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0;
+            margin: 0;
+        }
+
+        .glowy-nav a {
+            color: var(--gg-ink);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .glowy-nav-links {
+            align-items: center;
+            display: flex;
+            gap: 22px;
+            margin: 0;
+        }
+
+        .glowy-pill-link {
+            background: var(--gg-blue);
+            border: 2px solid var(--gg-ink);
+            border-radius: 999px;
+            box-shadow: 0 3px 0 var(--gg-ink);
+            padding: 10px 18px;
+        }
+
+        .glowy-hero {
+            overflow: hidden;
+            padding: 74px 0 40px;
+        }
+
+        .glowy-hero-grid {
+            align-items: center;
+            display: grid;
+            gap: 36px;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+        }
+
+        .glowy-kicker {
+            color: #5e747d;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .glowy-title {
+            color: var(--gg-ink);
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.03;
+            margin-bottom: 22px;
+        }
+
+        .glowy-lead {
+            color: #435159;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 760px;
+        }
+
+        .glowy-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .glowy-button {
+            align-items: center;
+            background: var(--gg-ink);
+            border: 2px solid var(--gg-ink);
+            border-radius: 999px;
+            color: #ffffff;
+            display: inline-flex;
+            font-size: 15px;
+            font-weight: 700;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 22px;
+            text-decoration: none;
+        }
+
+        .glowy-button.secondary {
+            background: #ffffff;
+            color: var(--gg-ink);
+        }
+
+        .glowy-hero-shot {
+            background: var(--gg-card);
+            border: 2px solid var(--gg-ink);
+            border-radius: 8px;
+            box-shadow: 12px 12px 0 var(--gg-ink);
+            padding: 18px;
+        }
+
+        .glowy-hero-shot img,
+        .glowy-frame img {
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+        .glowy-section {
+            padding: 54px 0;
+        }
+
+        .glowy-section-title {
+            color: var(--gg-ink);
+            font-size: clamp(30px, 4vw, 48px);
+            margin-bottom: 16px;
+        }
+
+        .glowy-section-copy {
+            color: #4b5b63;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0;
+            max-width: 900px;
+        }
+
+        .glowy-card-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 32px;
+        }
+
+        .glowy-info-card {
+            background: var(--gg-card);
+            border: 2px solid var(--gg-ink);
+            border-radius: 8px;
+            box-shadow: 5px 5px 0 var(--gg-ink);
+            min-height: 190px;
+            padding: 26px;
+        }
+
+        .glowy-info-card:nth-child(2) {
+            background: #f5f7f0;
+        }
+
+        .glowy-info-card:nth-child(3) {
+            background: #f4f1fa;
+        }
+
+        .glowy-info-card:nth-child(4) {
+            background: #edf7f2;
+        }
+
+        .glowy-info-card h3 {
+            color: var(--gg-ink);
+            font-size: 21px;
+            margin-bottom: 14px;
+        }
+
+        .glowy-info-card p,
+        .glowy-showcase-copy p,
+        .glowy-list li {
+            color: #4d5961;
+            font-size: 15px;
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+
+        .glowy-stats {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 30px;
+        }
+
+        .glowy-stat {
+            background: var(--gg-ink);
+            border-radius: 8px;
+            color: #ffffff;
+            padding: 24px;
+        }
+
+        .glowy-stat strong {
+            display: block;
+            font-size: 34px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .glowy-stat span {
+            color: #d8e6e9;
+            font-size: 14px;
+        }
+
+        .glowy-showcase {
+            align-items: start;
+            display: grid;
+            gap: 32px;
+            grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+            margin-top: 34px;
+        }
+
+        .glowy-showcase.alt {
+            grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+        }
+
+        .glowy-showcase-copy {
+            background: #ffffff;
+            border: 2px solid var(--gg-ink);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .glowy-showcase-copy h3 {
+            color: var(--gg-ink);
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        .glowy-list {
+            display: grid;
+            gap: 13px;
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0;
+        }
+
+        .glowy-list li {
+            border-left: 4px solid var(--gg-blue);
+            padding-left: 14px;
+        }
+
+        .glowy-frame {
+            background: #ffffff;
+            border: 2px solid var(--gg-ink);
+            border-radius: 8px;
+            box-shadow: 8px 8px 0 var(--gg-ink);
+            padding: 14px;
+        }
+
+        .glowy-gallery {
+            display: grid;
+            gap: 26px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 34px;
+        }
+
+        .glowy-gallery-card {
+            background: #ffffff;
+            border: 2px solid var(--gg-ink);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .glowy-gallery-card img {
+            display: block;
+            height: 420px;
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+        }
+
+        .glowy-gallery-card figcaption {
+            border-top: 1px solid var(--gg-line);
+            color: var(--gg-ink);
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            padding: 18px 20px;
+        }
+
+        .glowy-footer {
+            background: var(--gg-ink);
+            margin-top: 34px;
+            padding: 38px 0;
+        }
+
+        .glowy-footer p {
+            color: #d7e3e7;
+            font-size: 14px;
+            margin: 0;
+            text-align: center;
+        }
+
+        @media (max-width: 991px) {
+            .glowy-hero-grid,
+            .glowy-showcase,
+            .glowy-showcase.alt {
+                grid-template-columns: 1fr;
+            }
+
+            .glowy-card-grid,
+            .glowy-gallery,
+            .glowy-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .glowy-nav-inner,
+            .glowy-nav-links,
+            .glowy-actions {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .glowy-nav-inner {
+                gap: 12px;
+                padding: 18px 0;
+            }
+
+            .glowy-nav-links {
+                gap: 12px;
+            }
+
+            .glowy-hero {
+                padding-top: 44px;
+            }
+
+            .glowy-card-grid,
+            .glowy-gallery,
+            .glowy-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .glowy-gallery-card img {
+                height: auto;
+            }
+
+            .glowy-hero-shot,
+            .glowy-frame {
+                box-shadow: 5px 5px 0 var(--gg-ink);
+            }
+        }
+    </style>
+</head>
+
+<body class="glowy-page">
+    <nav class="glowy-nav">
+        <div class="container glowy-nav-inner">
+            <a class="glowy-brand" href="./index.html">Farah Aflah</a>
+            <div class="glowy-nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#strategy">Strategy</a>
+                <a href="#screens">Screenshots</a>
+                <a class="glowy-pill-link" href="https://glowyguide.com/" target="_blank" rel="noopener">Visit Live
+                    Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="glowy-hero">
+            <div class="container glowy-hero-grid">
+                <div>
+                    <p class="glowy-kicker">Website Project</p>
+                    <h1 class="glowy-title">Glowy Guide</h1>
+                    <p class="glowy-lead">Glowyguide adalah website bertema produk perawatan wajah yang menggunakan
+                        WordPress sebagai content management system dan Blogpoet sebagai tema induk. Website ini
+                        menyajikan konten skincare yang terstruktur untuk kategori face wash, sunscreen, moisturizer,
+                        dan serum.</p>
+                    <div class="glowy-actions">
+                        <a class="glowy-button" href="#screens">Lihat Tampilan</a>
+                        <a class="glowy-button secondary" href="./index.html#portfolio">Kembali ke Portfolio</a>
+                    </div>
+                </div>
+                <div class="glowy-hero-shot">
+                    <img src="./assets/home.png" alt="Tampilan halaman beranda Glowy Guide">
+                </div>
+            </div>
+        </section>
+
+        <section class="glowy-section" id="overview">
+            <div class="container">
+                <h2 class="glowy-section-title">Outline Project</h2>
+                <p class="glowy-section-copy">Website ini dibangun sebagai blog niche skincare dengan fokus pada
+                    rekomendasi produk, artikel informatif, dan optimasi performa. Strategi kontennya mengutamakan
+                    keyphrase yang memiliki daya saing rendah tetapi volume pencarian tinggi, lalu setiap artikel
+                    dioptimasi sampai memiliki indikator Yoast SEO good.</p>
+
+                <div class="glowy-card-grid">
+                    <article class="glowy-info-card">
+                        <h3>CMS</h3>
+                        <p>Menggunakan WordPress untuk mengelola artikel, kategori, halaman, dan workflow publikasi
+                            konten.</p>
+                    </article>
+                    <article class="glowy-info-card">
+                        <h3>Theme</h3>
+                        <p>Menggunakan Blogpoet sebagai tema induk dengan tampilan blog skincare yang ringan dan mudah
+                            dibaca.</p>
+                    </article>
+                    <article class="glowy-info-card">
+                        <h3>Kategori</h3>
+                        <p>Konten dibagi ke dalam empat kategori utama: face wash, sunscreen, moisturizer, dan serum.
+                        </p>
+                    </article>
+                    <article class="glowy-info-card">
+                        <h3>Monetize</h3>
+                        <p>Website sudah didaftarkan ke AdSense dan dilengkapi link afiliasi pada artikel produk.</p>
+                    </article>
+                </div>
+
+                <div class="glowy-stats">
+                    <div class="glowy-stat">
+                        <strong>80+</strong>
+                        <span>Skor PageSpeed blog untuk desktop dan mobile.</span>
+                    </div>
+                    <div class="glowy-stat">
+                        <strong>4</strong>
+                        <span>Kategori utama untuk segmentasi konten skincare.</span>
+                    </div>
+                    <div class="glowy-stat">
+                        <strong>SEO</strong>
+                        <span>Artikel diarahkan untuk mencapai Yoast SEO good.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glowy-section" id="strategy">
+            <div class="container">
+                <h2 class="glowy-section-title">SEO, Performa, dan Monetisasi</h2>
+                <p class="glowy-section-copy">Glowy Guide tidak hanya berfokus pada tampilan blog, tetapi juga pada
+                    fondasi pertumbuhan: riset keyword, struktur kategori, performa halaman, dan monetisasi yang
+                    relevan dengan konten produk skincare.</p>
+
+                <div class="glowy-showcase">
+                    <div class="glowy-showcase-copy">
+                        <h3>Strategi Konten</h3>
+                        <p>Artikel dibuat dari keyphrase yang kompetisinya rendah namun tetap memiliki potensi
+                            pencarian tinggi. Pendekatan ini membantu website membangun peluang ranking pada topik yang
+                            spesifik dan sesuai kebutuhan pembaca.</p>
+                        <ul class="glowy-list">
+                            <li>Topik difokuskan pada kebutuhan pengguna skincare remaja dan pemula.</li>
+                            <li>Setiap artikel disusun agar memenuhi indikator Yoast SEO good.</li>
+                            <li>Internal linking dan related post membantu pengguna menjelajah artikel serupa.</li>
+                        </ul>
+                    </div>
+                    <div class="glowy-frame">
+                        <img src="./assets/on page.png" alt="Tampilan artikel Glowy Guide dengan optimasi on page">
+                    </div>
+                </div>
+
+                <div class="glowy-showcase alt">
+                    <div class="glowy-frame">
+                        <img src="./assets/affiliate.png" alt="Tampilan artikel Glowy Guide dengan link afiliasi">
+                    </div>
+                    <div class="glowy-showcase-copy">
+                        <h3>Affiliate dan AdSense</h3>
+                        <p>Monetisasi dilakukan melalui pendaftaran AdSense serta penempatan link afiliasi pada artikel
+                            rekomendasi produk. Tombol produk ditempatkan di bagian yang relevan setelah deskripsi,
+                            sehingga tetap mengikuti alur baca pengunjung.</p>
+                        <ul class="glowy-list">
+                            <li>Artikel produk memuat tombol afiliasi untuk tindakan pembelian.</li>
+                            <li>Konten tetap informatif dan tidak hanya berisi promosi.</li>
+                            <li>Struktur halaman menjaga keseimbangan antara pengalaman baca dan monetisasi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glowy-section" id="screens">
+            <div class="container">
+                <h2 class="glowy-section-title">Screenshots</h2>
+                <p class="glowy-section-copy">Beberapa tampilan berikut memperlihatkan halaman beranda, kategori,
+                    artikel, layout sidebar, related post, comment form, dan penempatan elemen monetisasi di dalam
+                    website.</p>
+
+                <div class="glowy-gallery">
+                    <figure class="glowy-gallery-card">
+                        <img src="./assets/home.png" alt="Halaman beranda Glowy Guide">
+                        <figcaption>Home page dengan hero, kartu artikel, recent post, dan kategori.</figcaption>
+                    </figure>
+                    <figure class="glowy-gallery-card">
+                        <img src="./assets/pag_cat.png" alt="Halaman kategori sunscreen Glowy Guide">
+                        <figcaption>Halaman kategori sunscreen dengan daftar artikel dan pagination.</figcaption>
+                    </figure>
+                    <figure class="glowy-gallery-card">
+                        <img src="./assets/Screenshot 2024-03-21 115447.png"
+                            alt="Tampilan blog Glowy Guide dengan sidebar">
+                        <figcaption>Layout blog dengan daftar artikel, recent post, dan categories sidebar.</figcaption>
+                    </figure>
+                    <figure class="glowy-gallery-card">
+                        <img src="./assets/on page.png" alt="Halaman artikel face wash Glowy Guide">
+                        <figcaption>Halaman artikel dengan related post, author box, dan form komentar.</figcaption>
+                    </figure>
+                    <figure class="glowy-gallery-card">
+                        <img src="./assets/affiliate.png" alt="Halaman artikel moisturizer dengan affiliate link">
+                        <figcaption>Artikel rekomendasi produk dengan tombol affiliate pada tiap item.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glowy-footer">
+        <div class="container">
+            <p>&copy; 2024 Farah Aflah. Static project page for Glowy Guide.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

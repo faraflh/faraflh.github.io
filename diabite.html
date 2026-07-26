@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DiaBite Project - Farah Aflah</title>
+    <meta name="description"
+        content="DiaBite mobile app project case study by Farah Aflah, featuring AI diabetes analysis, Gemini chat, OTP authentication, Room history, articles, reminders, widgets, and gamification.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/feature.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        body.diabite-page {
+            background: #212428;
+            color: var(--color-lightn);
+            font-family: var(--font-primary);
+        }
+
+        .db-nav {
+            background: rgba(33, 36, 40, 0.92);
+            border-bottom: 1px solid #30343a;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+        }
+
+        .db-nav-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-height: 82px;
+        }
+
+        .db-brand,
+        .db-nav-link {
+            color: var(--color-lightn);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .db-brand {
+            color: #ffffff;
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .db-nav-links {
+            display: flex;
+            gap: 24px;
+            margin: 0;
+        }
+
+        .db-nav-link {
+            font-size: 14px;
+        }
+
+        .db-nav-link:hover,
+        .db-brand:hover {
+            color: var(--color-primary);
+        }
+
+        .db-hero {
+            padding: 88px 0 70px;
+        }
+
+        .db-hero-grid {
+            align-items: center;
+            display: grid;
+            gap: 52px;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        }
+
+        .db-kicker {
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .db-title {
+            color: #ffffff;
+            font-size: clamp(46px, 8vw, 92px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 26px;
+        }
+
+        .db-lead {
+            color: var(--color-lightn);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 34px;
+            max-width: 790px;
+        }
+
+        .db-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .db-btn {
+            align-items: center;
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: var(--shadow-1);
+            color: var(--color-primary);
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 600;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .db-btn:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .db-phone-feature {
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border-radius: 8px;
+            box-shadow: var(--shadow-1);
+            padding: 22px;
+        }
+
+        .db-phone-feature img {
+            border-radius: 10px;
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+        .db-section {
+            padding: 74px 0;
+        }
+
+        .db-section.section-separator {
+            border-top: 1px solid #30343a;
+        }
+
+        .db-section-title {
+            color: #ffffff;
+            font-size: clamp(32px, 5vw, 56px);
+            margin-bottom: 18px;
+        }
+
+        .db-section-copy {
+            color: var(--color-lightn);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0;
+            max-width: 880px;
+        }
+
+        .db-role-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .db-role-card,
+        .db-flow-card,
+        .db-shot-card {
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border-radius: 8px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .db-role-card {
+            min-height: 218px;
+            padding: 30px;
+        }
+
+        .db-role-card h3,
+        .db-flow-card h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .db-role-card p,
+        .db-flow-card p,
+        .db-shot-card figcaption {
+            color: var(--color-lightn);
+            font-size: 15px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .db-flow {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .db-flow-card {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: 170px minmax(0, 1fr);
+            padding: 24px;
+        }
+
+        .db-flow-card img {
+            border-radius: 8px;
+            height: 330px;
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+        }
+
+        .db-shot-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 42px;
+        }
+
+        .db-shot-card {
+            overflow: hidden;
+            padding: 14px;
+        }
+
+        .db-shot-card img {
+            border-radius: 8px;
+            display: block;
+            height: 460px;
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+        }
+
+        .db-shot-card figcaption {
+            min-height: 86px;
+            padding: 18px 8px 6px;
+        }
+
+        .db-shot-card strong {
+            color: #ffffff;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .db-footer {
+            border-top: 1px solid #30343a;
+            padding: 36px 0;
+            text-align: center;
+        }
+
+        .db-footer p {
+            color: var(--color-lightn);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 1199px) {
+            .db-shot-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .db-hero-grid,
+            .db-flow,
+            .db-role-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .db-shot-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 767px) {
+            .db-nav-inner,
+            .db-nav-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .db-nav-inner {
+                gap: 14px;
+                padding: 18px 0;
+            }
+
+            .db-nav-links {
+                gap: 12px;
+            }
+
+            .db-hero {
+                padding: 54px 0 46px;
+            }
+
+            .db-flow-card {
+                grid-template-columns: 1fr;
+            }
+
+            .db-flow-card img {
+                height: auto;
+            }
+
+            .db-shot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .db-shot-card img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="diabite-page">
+    <nav class="db-nav">
+        <div class="container db-nav-inner">
+            <a class="db-brand" href="./index.html">Farah Aflah</a>
+            <div class="db-nav-links">
+                <a class="db-nav-link" href="#role">Role</a>
+                <a class="db-nav-link" href="#flow">Flow</a>
+                <a class="db-nav-link" href="#screens">Screenshots</a>
+                <a class="db-nav-link" href="./index.html#portfolio">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="db-hero">
+            <div class="container db-hero-grid">
+                <div>
+                    <p class="db-kicker">Mobile App Project</p>
+                    <h1 class="db-title">DiaBite</h1>
+                    <p class="db-lead">DiaBite is a diabetes companion app built with MVVM architecture, combining
+                        diabetes risk analysis, food nutrition guidance, analysis history, articles, reminders,
+                        gamification, and generative AI support through Gemini.</p>
+                    <div class="db-actions">
+                        <a class="db-btn" href="#screens">View Screenshots</a>
+                        <a class="db-btn" href="https://github.com/DiaBite-Bangkit-2024" target="_blank">Repository</a>
+                        <a class="db-btn" href="./index.html#portfolio">Back to Portfolio</a>
+                    </div>
+                </div>
+                <div class="db-phone-feature">
+                    <img src="./assets/ss-diabite-6.jpg" alt="DiaBite dashboard screen">
+                </div>
+            </div>
+        </section>
+
+        <section class="db-section section-separator" id="role">
+            <div class="container">
+                <h2 class="db-section-title">My Role</h2>
+                <p class="db-section-copy">My work focused on connecting the app experience with AI services, local
+                    data, authentication, and retention features so users could analyze, learn, return, and keep track
+                    of their diabetes-related habits.</p>
+
+                <div class="db-role-grid">
+                    <article class="db-role-card">
+                        <h3>AI Integration</h3>
+                        <p>Integrated an AI/ML model from GCP via Retrofit and added generative AI chat using the
+                            Gemini API for diabetes-related questions.</p>
+                    </article>
+                    <article class="db-role-card">
+                        <h3>Auth and Data</h3>
+                        <p>Implemented OTP authentication and Room database support to store analysis history locally
+                            inside the app.</p>
+                    </article>
+                    <article class="db-role-card">
+                        <h3>Content and UX</h3>
+                        <p>Fetched diabetes-related articles and improved the experience with animated splash,
+                            onboarding, and Lottie animations.</p>
+                    </article>
+                    <article class="db-role-card">
+                        <h3>Gamification</h3>
+                        <p>Added streak tracking, trivia, reminders, and home widgets to encourage repeated healthy
+                            engagement.</p>
+                    </article>
+                    <article class="db-role-card">
+                        <h3>Architecture</h3>
+                        <p>Built the app using MVVM architecture to keep screens, state, and data flows organized and
+                            maintainable.</p>
+                    </article>
+                    <article class="db-role-card">
+                        <h3>Mobile Flow</h3>
+                        <p>Connected analysis, food tips, nutrition details, history, articles, and settings into a
+                            coherent Android app journey.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="db-section section-separator" id="flow">
+            <div class="container">
+                <h2 class="db-section-title">Product Flow</h2>
+                <p class="db-section-copy">The screenshots are ordered to reflect the intended user journey: first-time
+                    entry, diabetes analysis, dashboard review, learning features, personalization, and AI assistance.
+                </p>
+
+                <div class="db-flow">
+                    <article class="db-flow-card">
+                        <img src="./assets/ss-diabite-0.jpg" alt="DiaBite splash screen">
+                        <div>
+                            <h3>Start and Onboarding</h3>
+                            <p>The app begins with a branded splash screen, then introduces the value proposition
+                                through onboarding pages before entering the main experience.</p>
+                        </div>
+                    </article>
+                    <article class="db-flow-card">
+                        <img src="./assets/ss-diabite-7.jpg" alt="DiaBite analysis input screen">
+                        <div>
+                            <h3>Risk Analysis</h3>
+                            <p>Users fill health-related inputs, submit the form, and receive a diabetes risk result
+                                from the integrated model.</p>
+                        </div>
+                    </article>
+                    <article class="db-flow-card">
+                        <img src="./assets/ss-diabite-8.jpg" alt="DiaBite food tips search screen">
+                        <div>
+                            <h3>Food Guidance</h3>
+                            <p>Food tips include searchable items, suggestions, alternatives, avoid lists, and nutrition
+                                facts for selected foods.</p>
+                        </div>
+                    </article>
+                    <article class="db-flow-card">
+                        <img src="./assets/ss-diabite-18.jpg" alt="DiaBite Gemini chat screen">
+                        <div>
+                            <h3>Gemini Chat</h3>
+                            <p>Gemini API support lets users ask diabetes and nutrition-related questions directly from
+                                the app.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="db-section section-separator" id="screens">
+            <div class="container">
+                <h2 class="db-section-title">Screenshots</h2>
+                <p class="db-section-copy">Ordered from first launch to advanced features, these screens document the
+                    core app journey and the parts I contributed to.</p>
+
+                <div class="db-shot-grid">
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-0.jpg" alt="DiaBite splash screen">
+                        <figcaption><strong>01. Splash Screen</strong>Animated app entry and branding.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-1.jpg" alt="DiaBite onboarding page one">
+                        <figcaption><strong>02. Onboarding</strong>Intro to diabetes risk analysis.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-2.jpg" alt="DiaBite onboarding page two">
+                        <figcaption><strong>03. Food Guidance Intro</strong>Explains healthier meal support.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-3.jpg" alt="DiaBite onboarding page three">
+                        <figcaption><strong>04. History and Articles Intro</strong>Guides users into learning features.
+                        </figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-7.jpg" alt="DiaBite diabetes analysis form">
+                        <figcaption><strong>05. Analyze Diabetes</strong>Health inputs for the AI/ML model.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-5.jpg" alt="DiaBite diabetes probability result modal">
+                        <figcaption><strong>06. Analysis Result</strong>Risk probability with next action.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-6.jpg" alt="DiaBite dashboard screen">
+                        <figcaption><strong>07. Dashboard</strong>Profile, streak, shortcuts, and risk summary.
+                        </figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-8.jpg" alt="DiaBite food tips search list">
+                        <figcaption><strong>08. Food Tips Search</strong>Searchable food list for guidance.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-9.jpg" alt="DiaBite food alternatives screen">
+                        <figcaption><strong>09. Alternatives</strong>Suggestion, alternative, and avoid tabs.
+                        </figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-10.jpg" alt="DiaBite nutrition facts screen">
+                        <figcaption><strong>10. Nutrition Facts</strong>Detailed macro and micro nutrients.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-11.jpg" alt="DiaBite history screen">
+                        <figcaption><strong>11. History</strong>Room-backed saved analysis result.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-12.jpg" alt="DiaBite quiz screen">
+                        <figcaption><strong>12. Quiz</strong>Trivia feature for gamified learning.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-13.jpg" alt="DiaBite articles screen">
+                        <figcaption><strong>13. Articles</strong>Fetched diabetes-related educational articles.
+                        </figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-14.jpg" alt="DiaBite settings screen">
+                        <figcaption><strong>14. Settings</strong>Reminder, theme, and profile access.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-15.jpg" alt="DiaBite personal information screen">
+                        <figcaption><strong>15. Personal Information</strong>Editable user health profile.</figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-16.jpg" alt="DiaBite dark theme settings screen">
+                        <figcaption><strong>16. Dark Theme</strong>Settings screen after dark mode is enabled.
+                        </figcaption>
+                    </figure>
+                    <figure class="db-shot-card">
+                        <img src="./assets/ss-diabite-18.jpg" alt="DiaBite Gemini chat screen">
+                        <figcaption><strong>17. Gemini Chat</strong>Generative AI Q and A support.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="db-footer">
+        <div class="container">
+            <p>&copy; 2024 Farah Aflah. Static project page for DiaBite.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
