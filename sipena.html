@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SIPENA Project - Farah Aflah</title>
+    <meta name="description"
+        content="SIPENA web-based administrative management system case study by Farah Aflah, built with Laravel CRUD modules, server-side DataTables, and a relational database workflow.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/feature.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        body.sipena-page {
+            background: #212428;
+            color: var(--color-lightn);
+            font-family: var(--font-primary);
+        }
+
+        .sp-nav {
+            background: rgba(33, 36, 40, 0.92);
+            border-bottom: 1px solid #30343a;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+        }
+
+        .sp-nav-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-height: 82px;
+        }
+
+        .sp-brand,
+        .sp-nav-link {
+            color: var(--color-lightn);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .sp-brand {
+            color: #ffffff;
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .sp-nav-links {
+            display: flex;
+            gap: 24px;
+            margin: 0;
+        }
+
+        .sp-nav-link {
+            font-size: 14px;
+        }
+
+        .sp-nav-link:hover,
+        .sp-brand:hover {
+            color: var(--color-primary);
+        }
+
+        .sp-hero {
+            padding: 88px 0 70px;
+        }
+
+        .sp-hero-grid {
+            align-items: center;
+            display: grid;
+            gap: 52px;
+            grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+        }
+
+        .sp-kicker {
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .sp-title {
+            color: #ffffff;
+            font-size: clamp(46px, 8vw, 92px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 26px;
+        }
+
+        .sp-lead {
+            color: var(--color-lightn);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 34px;
+            max-width: 790px;
+        }
+
+        .sp-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .sp-btn {
+            align-items: center;
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: var(--shadow-1);
+            color: var(--color-primary);
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 600;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .sp-btn:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .sp-feature-shot,
+        .sp-role-card,
+        .sp-flow-card,
+        .sp-shot-card {
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border-radius: 8px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .sp-feature-shot {
+            padding: 18px;
+        }
+
+        .sp-feature-shot img {
+            border-radius: 8px;
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+
+        .sp-section {
+            border-top: 1px solid #30343a;
+            padding: 74px 0;
+        }
+
+        .sp-section-title {
+            color: #ffffff;
+            font-size: clamp(32px, 5vw, 56px);
+            margin-bottom: 18px;
+        }
+
+        .sp-section-copy {
+            color: var(--color-lightn);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0;
+            max-width: 900px;
+        }
+
+        .sp-role-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .sp-role-card {
+            min-height: 216px;
+            padding: 30px;
+        }
+
+        .sp-role-card h3,
+        .sp-flow-card h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .sp-role-card p,
+        .sp-flow-card p,
+        .sp-shot-card figcaption {
+            color: var(--color-lightn);
+            font-size: 15px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .sp-flow {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .sp-flow-card {
+            padding: 26px;
+            position: relative;
+        }
+
+        .sp-flow-number {
+            align-items: center;
+            background: var(--color-primary);
+            border-radius: 50%;
+            color: #ffffff;
+            display: inline-flex;
+            font-size: 16px;
+            font-weight: 700;
+            height: 42px;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 42px;
+        }
+
+        .sp-shot-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 42px;
+        }
+
+        .sp-shot-card {
+            overflow: hidden;
+            padding: 16px;
+        }
+
+        .sp-shot-card img {
+            border-radius: 8px;
+            display: block;
+            height: 390px;
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+        }
+
+        .sp-shot-card figcaption {
+            min-height: 88px;
+            padding: 18px 8px 6px;
+        }
+
+        .sp-shot-card strong {
+            color: #ffffff;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .sp-footer {
+            border-top: 1px solid #30343a;
+            padding: 36px 0;
+            text-align: center;
+        }
+
+        .sp-footer p {
+            color: var(--color-lightn);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 1199px) {
+            .sp-flow {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .sp-hero-grid,
+            .sp-role-grid,
+            .sp-shot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sp-nav-inner,
+            .sp-nav-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .sp-nav-inner {
+                gap: 14px;
+                padding: 18px 0;
+            }
+
+            .sp-nav-links {
+                gap: 12px;
+            }
+
+            .sp-hero {
+                padding: 54px 0 46px;
+            }
+
+            .sp-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .sp-shot-card img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="sipena-page">
+    <nav class="sp-nav">
+        <div class="container sp-nav-inner">
+            <a class="sp-brand" href="./index.html">Farah Aflah</a>
+            <div class="sp-nav-links">
+                <a class="sp-nav-link" href="#overview">Overview</a>
+                <a class="sp-nav-link" href="#process">Process</a>
+                <a class="sp-nav-link" href="#screens">Screenshots</a>
+                <a class="sp-nav-link" href="./index.html#portfolio">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="sp-hero">
+            <div class="container sp-hero-grid">
+                <div>
+                    <p class="sp-kicker">Web Application Project</p>
+                    <h1 class="sp-title">SIPENA</h1>
+                    <p class="sp-lead">SIPENA is a web-based administrative management system designed to streamline
+                        application submission management from regional government agencies (OPD), from public requests
+                        through admin review, acceptance, rejection, status updates, and applicant notifications.</p>
+                    <div class="sp-actions">
+                        <a class="sp-btn" href="#screens">View Screenshots</a>
+                        <a class="sp-btn" href="./index.html#portfolio">Back to Portfolio</a>
+                    </div>
+                </div>
+                <div class="sp-feature-shot">
+                    <img src="./assets/sipena-dashboard.png" alt="SIPENA admin dashboard">
+                </div>
+            </div>
+        </section>
+
+        <section class="sp-section" id="overview">
+            <div class="container">
+                <h2 class="sp-section-title">Project Outline</h2>
+                <p class="sp-section-copy">The project focuses on administrative workflow efficiency for application
+                    requests submitted by OPD users. The backend was built with Laravel CRUD modules, server-side
+                    DataTables for scalable listing and search behavior, and a relational database model consisting of
+                    20 interconnected tables to support the full workflow.</p>
+
+                <div class="sp-role-grid">
+                    <article class="sp-role-card">
+                        <h3>Administrative Workflow</h3>
+                        <p>Developed a web-based system for managing application submissions from regional government
+                            agencies, including request intake, admin review, and status decisions.</p>
+                    </article>
+                    <article class="sp-role-card">
+                        <h3>Laravel CRUD Modules</h3>
+                        <p>Built backend CRUD modules for master data, employees, request management, application
+                            management, documentation, and administrative records.</p>
+                    </article>
+                    <article class="sp-role-card">
+                        <h3>Server-side DataTables</h3>
+                        <p>Implemented searchable, paginated, server-side DataTables to make large administrative data
+                            sets easier to process and manage.</p>
+                    </article>
+                    <article class="sp-role-card">
+                        <h3>Relational Database</h3>
+                        <p>Designed and implemented a relational schema with 20 interconnected tables supporting the
+                            full lifecycle of submissions and administrative entities.</p>
+                    </article>
+                    <article class="sp-role-card">
+                        <h3>Request Confirmation</h3>
+                        <p>Implemented review actions that let admins accept or reject requests and update the
+                            application status accordingly.</p>
+                    </article>
+                    <article class="sp-role-card">
+                        <h3>Applicant Updates</h3>
+                        <p>Connected request outcomes with applicant-facing status updates and notifications, including
+                            accepted and rejected decisions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="sp-section" id="process">
+            <div class="container">
+                <h2 class="sp-section-title">Process Flow</h2>
+                <p class="sp-section-copy">The flow begins when an applicant submits a request. The system forwards the
+                    request to the admin side. After a successful admin login, the admin can view and manage requests,
+                    then confirm each submission with one of two decisions: accept or reject.</p>
+
+                <div class="sp-flow">
+                    <article class="sp-flow-card">
+                        <span class="sp-flow-number">1</span>
+                        <h3>Submit Request</h3>
+                        <p>The applicant fills in the public request form with PIC, OPD, application name, contact, and
+                            email information.</p>
+                    </article>
+                    <article class="sp-flow-card">
+                        <span class="sp-flow-number">2</span>
+                        <h3>Forward to Admin</h3>
+                        <p>The system records the request and makes it available in the admin request management table.
+                        </p>
+                    </article>
+                    <article class="sp-flow-card">
+                        <span class="sp-flow-number">3</span>
+                        <h3>Admin Review</h3>
+                        <p>The admin logs in, opens the request detail, and checks the submitted OPD and application
+                            information.</p>
+                    </article>
+                    <article class="sp-flow-card">
+                        <span class="sp-flow-number">4</span>
+                        <h3>Accept or Reject</h3>
+                        <p>If accepted, the request status is updated and a generated code can be provided. If rejected,
+                            the status is marked as rejected.</p>
+                    </article>
+                    <article class="sp-flow-card">
+                        <span class="sp-flow-number">5</span>
+                        <h3>Notify Applicant</h3>
+                        <p>The applicant receives an outcome notification for either the accepted request or the
+                            rejection result.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="sp-section" id="screens">
+            <div class="container">
+                <h2 class="sp-section-title">Screenshots</h2>
+                <p class="sp-section-copy">The screenshots are ordered according to the project flow: public pages,
+                    admin login, dashboard, master data, request processing, confirmation modals, and supporting CRUD
+                    forms.</p>
+
+                <div class="sp-shot-grid">
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-home.png" alt="SIPENA public homepage">
+                        <figcaption><strong>01. Public Homepage</strong>Landing page for the SIPENA request service.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-request-form.png" alt="SIPENA public request form">
+                        <figcaption><strong>02. Request Submission</strong>Applicant form for OPD application requests.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-login.png" alt="SIPENA admin login">
+                        <figcaption><strong>03. Admin Login</strong>Authentication gate before accessing admin modules.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-dashboard.png" alt="SIPENA dashboard">
+                        <figcaption><strong>04. Dashboard</strong>Admin landing page after successful login.</figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-position-activity.png" alt="SIPENA position activity master data">
+                        <figcaption><strong>05. Position Activity Master</strong>Server-side DataTables for master data.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-position-status.png" alt="SIPENA position status master data">
+                        <figcaption><strong>06. Position Status Master</strong>CRUD listing for position status data.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-category.png" alt="SIPENA category master data">
+                        <figcaption><strong>07. Category Master</strong>Category data used to classify submissions.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-workflow.png" alt="SIPENA workflow master data">
+                        <figcaption><strong>08. Workflow Master</strong>Administrative flow data supporting request
+                            routing.</figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-requests.png" alt="SIPENA request management list">
+                        <figcaption><strong>09. Request Management</strong>Admin list showing accepted and rejected
+                            submissions.</figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-detail-review.png" alt="SIPENA request detail review modal">
+                        <figcaption><strong>10. Request Review</strong>Detail modal with accept and reject decisions.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-detail-accepted.png" alt="SIPENA accepted request detail modal">
+                        <figcaption><strong>11. Accepted Request</strong>Status updates after a request is accepted.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-staff.png" alt="SIPENA employee data table">
+                        <figcaption><strong>12. Employee Management</strong>Employee CRUD table used in the workflow.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-app-management.png" alt="SIPENA application management table">
+                        <figcaption><strong>13. Application Management</strong>Manage teams, documents, and workflow
+                            assignments.</figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-add-position-activity.png" alt="SIPENA add position activity modal">
+                        <figcaption><strong>14. Add Position Activity</strong>CRUD modal for creating master data.
+                        </figcaption>
+                    </figure>
+                    <figure class="sp-shot-card">
+                        <img src="./assets/sipena-add-staff.png" alt="SIPENA add employee modal">
+                        <figcaption><strong>15. Add Employee</strong>Employee creation modal with identity and bank
+                            fields.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="sp-footer">
+        <div class="container">
+            <p>&copy; 2026 Farah Aflah. Static project page for SIPENA.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
