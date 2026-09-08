@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TI UNRI RAG Chatbot Project - Farah Aflah</title>
+    <meta name="description"
+        content="Portfolio case study for TI UNRI Academic Chatbot, a Streamlit Retrieval-Augmented Generation application for academic questions about Informatics Engineering at Universitas Riau.">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://i.pinimg.com/736x/39/aa/d8/39aad8822d404314831b450a25707e47.jpg">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/feature.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        body.rag-page {
+            background: #212428;
+            color: var(--color-lightn);
+            font-family: var(--font-primary);
+        }
+
+        .rag-nav {
+            background: rgba(33, 36, 40, 0.92);
+            border-bottom: 1px solid #30343a;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+        }
+
+        .rag-nav-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-height: 82px;
+        }
+
+        .rag-brand,
+        .rag-nav-link {
+            color: var(--color-lightn);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .rag-brand {
+            color: #ffffff;
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .rag-nav-links {
+            display: flex;
+            gap: 24px;
+            margin: 0;
+        }
+
+        .rag-nav-link {
+            font-size: 14px;
+        }
+
+        .rag-nav-link:hover,
+        .rag-brand:hover {
+            color: var(--color-primary);
+        }
+
+        .rag-hero {
+            padding: 88px 0 70px;
+        }
+
+        .rag-hero-grid {
+            align-items: center;
+            display: grid;
+            gap: 52px;
+            grid-template-columns: minmax(0, 0.9fr) minmax(460px, 1.1fr);
+        }
+
+        .rag-kicker {
+            color: var(--color-primary);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .rag-title {
+            color: #ffffff;
+            font-size: clamp(42px, 7vw, 84px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 26px;
+        }
+
+        .rag-lead {
+            color: var(--color-lightn);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 34px;
+            max-width: 820px;
+        }
+
+        .rag-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .rag-btn {
+            align-items: center;
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: var(--shadow-1);
+            color: var(--color-primary);
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 600;
+            justify-content: center;
+            min-height: 54px;
+            padding: 0 24px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .rag-btn:hover {
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .rag-feature-shot,
+        .rag-card,
+        .rag-flow-card,
+        .rag-shot-card {
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            border-radius: 8px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .rag-feature-shot {
+            padding: 18px;
+        }
+
+        .rag-feature-shot img,
+        .rag-shot-card img {
+            border-radius: 8px;
+            display: block;
+            width: 100%;
+        }
+
+        .rag-feature-shot img {
+            height: auto;
+        }
+
+        .rag-section {
+            border-top: 1px solid #30343a;
+            padding: 74px 0;
+        }
+
+        .rag-section-title {
+            color: #ffffff;
+            font-size: clamp(32px, 5vw, 56px);
+            margin-bottom: 18px;
+        }
+
+        .rag-section-copy {
+            color: var(--color-lightn);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 0;
+            max-width: 920px;
+        }
+
+        .rag-card-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .rag-card {
+            min-height: 220px;
+            padding: 30px;
+        }
+
+        .rag-card h3,
+        .rag-flow-card h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .rag-card p,
+        .rag-flow-card p,
+        .rag-shot-card figcaption {
+            color: var(--color-lightn);
+            font-size: 15px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .rag-flow {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .rag-flow-card {
+            padding: 26px;
+        }
+
+        .rag-flow-number {
+            align-items: center;
+            background: var(--color-primary);
+            border-radius: 50%;
+            color: #ffffff;
+            display: inline-flex;
+            font-size: 16px;
+            font-weight: 700;
+            height: 42px;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 42px;
+        }
+
+        .rag-shot-grid {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 42px;
+        }
+
+        .rag-shot-card {
+            overflow: hidden;
+            padding: 16px;
+        }
+
+        .rag-shot-card img {
+            height: 390px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .rag-shot-card figcaption {
+            min-height: 90px;
+            padding: 18px 8px 6px;
+        }
+
+        .rag-shot-card strong {
+            color: #ffffff;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .rag-footer {
+            border-top: 1px solid #30343a;
+            padding: 36px 0;
+            text-align: center;
+        }
+
+        .rag-footer p {
+            color: var(--color-lightn);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 1199px) {
+            .rag-flow {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .rag-hero-grid,
+            .rag-card-grid,
+            .rag-shot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .rag-nav-inner,
+            .rag-nav-links {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .rag-nav-inner {
+                gap: 14px;
+                padding: 18px 0;
+            }
+
+            .rag-nav-links {
+                gap: 12px;
+            }
+
+            .rag-hero {
+                padding: 54px 0 46px;
+            }
+
+            .rag-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .rag-shot-card img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="rag-page">
+    <nav class="rag-nav">
+        <div class="container rag-nav-inner">
+            <a class="rag-brand" href="./index.html">Farah Aflah</a>
+            <div class="rag-nav-links">
+                <a class="rag-nav-link" href="#overview">Overview</a>
+                <a class="rag-nav-link" href="#workflow">Workflow</a>
+                <a class="rag-nav-link" href="#screens">Screenshots</a>
+                <a class="rag-nav-link" href="./index.html#portfolio">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="rag-hero">
+            <div class="container rag-hero-grid">
+                <div>
+                    <p class="rag-kicker">AI Chatbot Project</p>
+                    <h1 class="rag-title">TI UNRI Academic RAG Chatbot</h1>
+                    <p class="rag-lead">A Streamlit-based Retrieval-Augmented Generation application that answers
+                        academic questions about the Informatics Engineering Study Program at Universitas Riau. The
+                        chatbot retrieves context from local academic documents, generates concise Indonesian answers,
+                        and displays source references for transparency.</p>
+                    <div class="rag-actions">
+                        <a class="rag-btn" href="#screens">View Screenshots</a>
+                        <a class="rag-btn" href="./index.html#portfolio">Back to Portfolio</a>
+                    </div>
+                </div>
+                <div class="rag-feature-shot">
+                    <img src="./assets/preview-home.png" alt="TI UNRI RAG Chatbot main interface">
+                </div>
+            </div>
+        </section>
+
+        <section class="rag-section" id="overview">
+            <div class="container">
+                <h2 class="rag-section-title">Project Outline</h2>
+                <p class="rag-section-copy">The project was built to help students and academic users ask questions
+                    about TI UNRI academic procedures, curriculum, lecturers, calendars, internships, thesis stages,
+                    payment schedules, graduation schedules, and post-defense administration using a grounded local
+                    knowledge base.</p>
+
+                <div class="rag-card-grid">
+                    <article class="rag-card">
+                        <h3>Streamlit Interface</h3>
+                        <p>Built a chat-based web interface with sidebar configuration for backend selection, model
+                            settings, LM Studio endpoint, embedding model, and conversation reset.</p>
+                    </article>
+                    <article class="rag-card">
+                        <h3>Hybrid Retrieval</h3>
+                        <p>Combined BM25 keyword retrieval with Chroma vector search so the chatbot can retrieve
+                            relevant context from local Markdown and text documents.</p>
+                    </article>
+                    <article class="rag-card">
+                        <h3>Indonesian Embeddings</h3>
+                        <p>Used Indonesian E5 embedding support to index academic documents and improve retrieval
+                            quality for Indonesian-language questions.</p>
+                    </article>
+                    <article class="rag-card">
+                        <h3>Topic Routing</h3>
+                        <p>Added routing for lecturers, academic calendars, curriculum, internship SOP, thesis SOP,
+                            seminar proposal, thesis defense, blue/red folders, SITEI, UKT/SPP, and graduation topics.
+                        </p>
+                    </article>
+                    <article class="rag-card">
+                        <h3>Flexible LLM Backend</h3>
+                        <p>Supported both a local Hugging Face backend and an OpenAI-compatible LM Studio endpoint,
+                            making the project adaptable to different development environments.</p>
+                    </article>
+                    <article class="rag-card">
+                        <h3>Source References</h3>
+                        <p>Displayed retrieved source documents alongside generated answers so users can verify where
+                            the academic information came from.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="rag-section" id="workflow">
+            <div class="container">
+                <h2 class="rag-section-title">RAG Workflow</h2>
+                <p class="rag-section-copy">The system turns local academic documents into searchable context, routes
+                    questions to the right academic topic, retrieves relevant evidence, and generates answers grounded
+                    in that evidence.</p>
+
+                <div class="rag-flow">
+                    <article class="rag-flow-card">
+                        <span class="rag-flow-number">1</span>
+                        <h3>Load Documents</h3>
+                        <p>The app loads local Markdown and text files from the project root or an optional content
+                            folder.</p>
+                    </article>
+                    <article class="rag-flow-card">
+                        <span class="rag-flow-number">2</span>
+                        <h3>Chunk and Index</h3>
+                        <p>Documents are split into chunks and indexed into Chroma with the Indonesian E5 embedding
+                            model.</p>
+                    </article>
+                    <article class="rag-flow-card">
+                        <span class="rag-flow-number">3</span>
+                        <h3>Route Question</h3>
+                        <p>The route classifier detects whether the question belongs to a specific academic topic or a
+                            general retrieval path.</p>
+                    </article>
+                    <article class="rag-flow-card">
+                        <span class="rag-flow-number">4</span>
+                        <h3>Retrieve and Answer</h3>
+                        <p>BM25 and vector search retrieve context, then the active LLM generates an Indonesian answer
+                            with source references.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="rag-section" id="screens">
+            <div class="container">
+                <h2 class="rag-section-title">Screenshots</h2>
+                <p class="rag-section-copy">The screenshots show the main chat interface and representative academic
+                    questions answered using retrieved local context.</p>
+
+                <div class="rag-shot-grid">
+                    <figure class="rag-shot-card">
+                        <img src="./assets/preview-home.png" alt="Main chat interface">
+                        <figcaption><strong>01. Main Chat Interface</strong>Streamlit interface with chat input,
+                            settings, and source-aware responses.</figcaption>
+                    </figure>
+                    <figure class="rag-shot-card">
+                        <img src="./assets/preview-sempro.png" alt="Seminar proposal answer">
+                        <figcaption><strong>02. Seminar Proposal Answer</strong>RAG response for seminar proposal
+                            requirements and academic guidance.</figcaption>
+                    </figure>
+                    <figure class="rag-shot-card">
+                        <img src="./assets/preview-map-merah.png" alt="Map merah answer">
+                        <figcaption><strong>03. Red Folder Guidance</strong>Answer for post-defense administrative
+                            requirements using the local knowledge base.</figcaption>
+                    </figure>
+                    <figure class="rag-shot-card">
+                        <img src="./assets/preview-semhas.png" alt="Seminar result or thesis defense answer">
+                        <figcaption><strong>04. Seminar Result and Defense</strong>Academic answer generated from
+                            relevant SOP and study program documents.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rag-footer">
+        <div class="container">
+            <p>&copy; 2026 Farah Aflah. Static project page for TI UNRI Academic RAG Chatbot.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
